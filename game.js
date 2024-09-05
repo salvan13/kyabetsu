@@ -77,7 +77,7 @@ new Engine({
       const h = this.getEntity(id).props.h / 2;
       const y = Math.max(h * 2, pos.y - pos.h / 2) - h;
       this.setEntityProps(id, {
-        x,
+        x: Math.max(Math.min(x, 90), 10),
         y,
         display: "none",
         text: "",
