@@ -136,6 +136,9 @@ export const mountains = {
         h: 7
       },
       actions: {
+        hit() {
+          this.exec("say", "c", "I don't want to break it");
+        },
         read() {
           this.exec("say", "c", "Triska Town");
         },
@@ -354,6 +357,9 @@ export const mountains = {
         h: 4
       },
       actions: {
+        hit() {
+          this.exec("say", "c", "I don't hurt her");
+        },
         use() {
           this.exec("say", "duck", "Quack!");
         },
@@ -402,6 +408,9 @@ export const mountains = {
         c: "var(--c4)"
       },
       actions: {
+        hit() {
+          this.exec("say", "c", "I don't want to break it");
+        },
         "look-at"() {
           this.exec("say", "c", "It reminds me my hometown");
         },

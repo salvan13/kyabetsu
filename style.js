@@ -1,3 +1,6 @@
+const style = document.createElement("style");
+document.head.append(style);
+style.innerHTML = `
 *,
 *::before,
 *::after {
@@ -156,3 +159,4 @@ button {
     border-color: var(--c2);
   }
 }
+`;

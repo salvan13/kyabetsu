@@ -62,11 +62,12 @@ export const house = {
           this.exec("say", "c", "It's just a ladder");
         },
         "pick-up"() {
-          if (this.state.moon) {
+          if (!this.state.violet) {
+            this.exec("say", "ao", "Stop!");
+          } else if (this.state.ladder) {
             this.exec("collect", { id: "ladder", sprite: "ladder", sceneObj: "ladder" });
-            this.state.ladder = 1;
           } else {
-            this.exec("say", "c", "I don't need it now");
+            this.exec("say", "ao", "Stop! I hear you!");
           }
         },
         use() {
@@ -76,7 +77,7 @@ export const house = {
             if (this.state.violet) {
               this.setScene("roof");
             } else {
-              this.exec("say", "ao", "Stop!");
+              this.exec("say", "ao", "Where are you going?!");
             }
           } else {
             return this.none;
@@ -125,8 +126,10 @@ export const house = {
               ["c", "Come with me on the Moon"],
               ["ao", "I am old"],
               ["ao", "My last day is here"],
-              ["ao", "With my flowers"]
+              ["ao", "With my flowers"],
+              ["ao", "You can take whatever you need"]
             ]);
+            this.state.ladder = 1;
           } else if (this.state.graffiti) {
             this.exec("talk", [
               ["c", "Can you read graffiti?"],

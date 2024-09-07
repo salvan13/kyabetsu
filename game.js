@@ -1,3 +1,4 @@
+import "./style.js";
 import Engine from "./lib/engine.js";
 import * as sprites from "./sprites.js";
 import { intro } from "./scenes/intro.js";

@@ -59,8 +59,8 @@ export const farm = {
       },
       actions: {
         hit() {
+          this.playSound("hit");
           if (!this.state.tree) {
-            this.playSound("hit");
             this.setEntityProps("tree", {
               rotate: "-2deg"
             });
@@ -186,6 +186,49 @@ export const farm = {
         h: 20,
         c: "color-mix(in srgb, var(--c6) 80%, var(--c0) 20%)"
       }
-    }
+    },
+    {
+      id: "swan",
+      sprite: "duck",
+      props: {
+        x: 37,
+        y: 56,
+        w: 4,
+        h: 4,
+        c: "var(--c1)"
+      },
+      actions: {
+        hit() {
+          this.exec("say", "c", "I don't hurt her");
+        },
+        "look-at"() {
+          this.exec("say", "c", "She can fly");
+        },
+        "pick-up"() {
+          this.state.swan = (this.state.swan || 0) + 1;
+          this.playSound("duck");
+          this.exec("arm");
+          const x = this.getEntity("swan").props.x;
+          const p = [
+            {
+              x: 79,
+              y: 36
+            },
+            {
+              x: 18,
+              y: 41,
+            },
+            {
+              x: 25,
+              y: 73,
+            }
+          ][(this.state.swan - 1) % 3];
+          this.setEntityProps("swan", {
+            ...p,
+            scale: x < p.x ? 1 : "-1 1"
+          });
+        }
+      }
+    },
   ]
 };
