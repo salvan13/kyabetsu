@@ -41,20 +41,8 @@ export const cave = {
         h: 8,
         c: "var(--c0)",
       },
-      onpress({ pos }) {
-        this.exec("move", { pos: { y: 67, x: pos.x } });
-        this.setScene("mountains");
-      }
-    },
-    {
-      id: "exit1",
-      sprite: "area",
-      props: {
-        x: 50,
-        y: 72,
-        w: 10,
-        h: 8,
-        c: "var(--c0)",
+      tooltip() {
+        return "exit the cave";
       },
       onpress({ pos }) {
         this.exec("move", { pos: { y: 67, x: pos.x } });
@@ -70,6 +58,9 @@ export const cave = {
         w: 10,
         h: 8,
         c: "var(--c0)",
+      },
+      tooltip() {
+        return "follow the path";
       },
       onpress({ pos }) {
         if (this.state.rock >= 20) {

@@ -41,6 +41,9 @@ export const hole2 = {
         h: 8,
         c: "var(--c0)",
       },
+      tooltip() {
+        return "follow the path";
+      },
       onpress({ pos }) {
         this.exec("move", { pos: { y: pos.y, x: 26 } });
         this.setScene("hole");

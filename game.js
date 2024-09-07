@@ -82,7 +82,8 @@ new Engine({
         y,
         display: "none",
         text: "",
-        zindex: 110
+        zindex: 110,
+        d: opts?.d
       });
       setTimeout(() => {
         this.setEntityProps(id, {
@@ -142,7 +143,7 @@ new Engine({
   },
   onTooltip(entity, text) {
     if (entity) {
-      this.exec("say", entity.id, text, { id: "tooltip", t: 0 });
+      this.exec("say", entity.id, text, { id: "tooltip", t: 0, d: !!entity.tooltip });
     } else {
       this.setEntityProps("tooltip", {
         display: "none"

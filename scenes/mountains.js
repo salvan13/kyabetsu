@@ -46,6 +46,9 @@ export const mountains = {
         h: 8,
         c: "var(--c6)"
       },
+      tooltip() {
+        return "follow the path";
+      },
       onpress({ pos }) {
         this.exec("move", { pos: { y: pos.y, x: 5 } });
         this.setScene("farm");

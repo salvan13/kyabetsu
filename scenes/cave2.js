@@ -41,6 +41,9 @@ export const cave2 = {
         h: 8,
         c: "var(--c0)",
       },
+      tooltip() {
+        return "follow the path";
+      },
       onpress({ pos }) {
         this.exec("move", { pos: { y: 70, x: pos.x } });
         this.setScene("cave");

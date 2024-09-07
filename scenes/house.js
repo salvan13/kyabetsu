@@ -42,6 +42,9 @@ export const house = {
         h: 8,
         c: "var(--c7)"
       },
+      tooltip() {
+        return "leave the house";
+      },
       onpress({ pos }) {
         this.exec("move", { pos: { y: 70, x: pos.x } });
         this.setScene("farm");

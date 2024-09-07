@@ -281,5 +281,9 @@ export const msg = {
       border: 0.5cqi solid var(--c, var(--c4));
       border-radius: 1cqi;
     }
+
+    &[data-d="true"]::before {
+      border: 0.3cqi dashed var(--c3);
+    }
   `
 };

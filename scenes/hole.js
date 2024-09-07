@@ -65,6 +65,9 @@ export const hole = {
         skewx: "20deg",
         rotate: "25deg"
       },
+      tooltip() {
+        return "follow the path";
+      },
       onpress({ pos }) {
         if (this.state.spider) {
           this.exec("move", { pos: { y: pos.y, x: 70 } });

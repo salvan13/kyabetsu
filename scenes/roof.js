@@ -41,6 +41,9 @@ export const roof = {
         h: 8,
         c: "var(--c7)"
       },
+      tooltip() {
+        return "return on first floor";
+      },
       onpress({ pos }) {
         this.exec("move", { pos: { y: 70, x: pos.x } });
         this.setScene("house");
