@@ -90,7 +90,7 @@ new Engine({
           text,
           display: "flex",
         });
-        if ((id === "tooltip" && this.getEntity("msg").props.display === "flex") || (id === "msg" && this.getEntity("tooltip").props.display === "flex")) {
+        if ((id === "tooltip" && this.getEntity("msg")?.props.display === "flex") || (id === "msg" && this.getEntity("tooltip")?.props.display === "flex")) {
           this.setEntityProps(id, {
             zindex: this.getEntity(id === "msg" ? "tooltip" : "msg").props.zindex + 2
           });
