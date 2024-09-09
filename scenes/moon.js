@@ -50,25 +50,18 @@ export const moon = {
           }
         },
         "talk-to"() {
-          if (this.state.end) {
-            this.exec("talk", [
-              ["coso", "That's all, my friend"],
-              ["coso", "Thanks for playing ❤️"]
-            ]);
-            setTimeout(() => {
-              this.setScene("end");
-            }, 5000);
-          } else {
-            this.exec("talk", [
-              ["c", "Woah we are on the Moon!"],
-              ["coso", "Tomorrow 13th September"],
-              ["coso", "The world is over"],
-              ["coso", "But we are safe here"],
-              ["c", "Where are we going?"],
-              ["coso", "Where the future is not written yet"]
-            ]);
-            this.state.end = 1;
-          }
+          this.exec("talk", [
+            ["c", "Woah we are on the Moon!"],
+            ["coso", "The world is over"],
+            ["coso", "But we are safe here"],
+            ["c", "Where are we going?"],
+            ["coso", "Where the future is not written yet"],
+            ["coso", "That's all, my friend"],
+            ["coso", "Thanks for playing ❤️"]
+          ]);
+          setTimeout(() => {
+            this.setScene("end");
+          }, 15000);
         }
       }
     }

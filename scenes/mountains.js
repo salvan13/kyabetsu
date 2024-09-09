@@ -367,10 +367,8 @@ export const mountains = {
           this.exec("say", "duck", "Quack!");
         },
         "look-at"() {
-          if (this.state.ducktry > 9) {
-            this.exec("say", "c", "I have to get closer");
-          } else if (this.state.ducktry > 0) {
-            this.exec("say", "c", "She is very fast");
+          if (this.state.moon) {
+            this.exec("say", "c", "I need to be very close to catch her");
           } else {
             this.exec("say", "c", "She can't fly");
           }
@@ -383,7 +381,6 @@ export const mountains = {
         },
         "pick-up"({ dist }) {
           this.playSound("duck");
-          this.state.ducktry = (this.state.ducktry || 0) + 1;
           if (dist > 6) {
             this.exec("arm");
             const x = 27 + Math.random() * 20;
