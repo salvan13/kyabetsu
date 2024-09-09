@@ -202,7 +202,7 @@ export const farm = {
       },
       actions: {
         hit() {
-          this.exec("say", "c", "I don't hurt her");
+          this.exec("say", "c", "I won't hurt her");
         },
         "look-at"() {
           this.exec("say", "c", "She can fly");

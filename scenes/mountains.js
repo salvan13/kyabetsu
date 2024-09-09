@@ -361,7 +361,7 @@ export const mountains = {
       },
       actions: {
         hit() {
-          this.exec("say", "c", "I don't hurt her");
+          this.exec("say", "c", "I won't hurt her");
         },
         use() {
           this.exec("say", "duck", "Quack!");
