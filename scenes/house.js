@@ -66,11 +66,14 @@ export const house = {
         },
         "pick-up"() {
           if (!this.state.violet) {
-            this.exec("say", "ao", "Stop!");
+            this.exec("say", "ao", "Don't touch that!");
           } else if (this.state.ladder) {
             this.exec("collect", { id: "ladder", sprite: "ladder", sceneObj: "ladder" });
           } else {
-            this.exec("say", "ao", "Stop! I hear you!");
+            this.exec("talk", [
+              ["ao", "I need it to go on the roof"],
+              ["ao", "What do you need it for?"]
+            ]);
           }
         },
         use() {
@@ -80,7 +83,7 @@ export const house = {
             if (this.state.violet) {
               this.setScene("roof");
             } else {
-              this.exec("say", "ao", "Where are you going?!");
+              this.exec("say", "ao", "Where are you going!?");
             }
           } else {
             return this.none;
@@ -103,6 +106,9 @@ export const house = {
             this.exec("say", "ao", "It's my mirror!");
           } else {
             this.exec("collect", { id: "mirror", sprite: "mirror", sceneObj: "mirror" });
+            setTimeout(() => {
+              this.exec("say", "ao", "I lend it to you");
+            }, 100);
           }
         },
         "look-at"() {
@@ -130,7 +136,8 @@ export const house = {
               ["ao", "I am old"],
               ["ao", "My last day is here"],
               ["ao", "With my flowers"],
-              ["ao", "You can take whatever you need"]
+              ["c", "Can I take the ladder?"],
+              ["ao", "Just do it"]
             ]);
             this.state.ladder = 1;
           } else if (this.state.graffiti) {
@@ -156,14 +163,15 @@ export const house = {
           }
         },
         "look-at"() {
-          this.exec("say", "c", "He looks tired");
+          this.exec("say", "c", "He looks old and tired");
         },
         use() {
           if (this.object === "violet") {
             this.destroy("violet");
             this.exec("talk", [
-              ["ao", "Nice violet"],
-              ["ao", "I'm going to plant it"]
+              ["ao", "Nice violet, thanks"],
+              ["ao", "I'm going to plant it"],
+              ["ao", "I love flowers"]
             ]);
             this.state.violet = 1;
             setTimeout(() => {
@@ -180,10 +188,6 @@ export const house = {
             this.exec("say", "ao", "Fruit is good");
           } else if (this.object === "torch" || this.object === "shovel") {
             this.exec("say", "c", "I don't want hurt him");
-          } else if (this.object === "mirror") {
-            this.exec("say", "c", "This is a very bad idea");
-          } else if (this.object === "ladder") {
-            this.exec("say", "c", "This is a very bad idea");
           } else if (this.object === "duck") {
             this.exec("say", "ao", "Cute");
           } else {
