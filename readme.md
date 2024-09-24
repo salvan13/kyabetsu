@@ -21,4 +21,4 @@ Select an action on the bottom and click on objects in the scene to interact wit
 - **Read** 📖 read something, eg: a book, a paper
 - **Use** ⚙️ use an object in the scene
   - if an object in the inventory is selected, use that object with something else in the scene
-  - note: you can unselect an object in the invetory by clicking it again
+  - note: you can unselect an object in the inventory by clicking it again
